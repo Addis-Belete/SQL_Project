@@ -96,3 +96,39 @@ SELECT winner,subject
   FROM nobel
  WHERE yr=1984
  ORDER BY subject IN ('Physics','Chemistry'),subject,winner
+
+SELECT name FROM world
+  WHERE population >
+     (SELECT population FROM world
+      WHERE name='Russia')
+
+SELECT name FROM world
+WHERE GDP/Population >(SELECT GDP/population FROM world
+WHERE name = 'United Kingdom') AND continent = 'Europe'
+
+-- nested select-->
+
+SELECT SUM(population)
+FROM world
+
+SELECT DISTINCT continent FROM world
+
+SELECT SUM(GDP) FROM world
+WHERE continent = 'Africa'
+
+SELECT COUNT(area) FROM world
+WHERE area >= 1000000
+
+SELECT SUM(population)FROM world
+WHERE name IN ('Estonia', 'Latvia', 'Lithuania')
+
+SELECT continent, COUNT(name) FROM world
+GROUP BY continent
+
+SELECT  continent, COUNT(population) FROM world
+WHERE population >= 10000000
+GROUP BY continent
+
+  -- SUM and Counting number 8->
+SELECT matchid, player FROM goal 
+  WHERE teamid = 'GER'
