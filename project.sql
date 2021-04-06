@@ -132,3 +132,34 @@ GROUP BY continent
   -- SUM and Counting number 8->
 SELECT matchid, player FROM goal 
   WHERE teamid = 'GER'
+
+SELECT DISTINCT id,stadium,team1,team2
+  FROM game
+INNER JOIN goal
+ON game.id = goal.matchid
+WHERE matchid = 1012
+
+SELECT player,  teamid, stadium, mdate
+  FROM game INNER JOIN goal ON (id=matchid)
+WHERE teamid = 'GER'
+
+SELECT team1, team2, player FROM game
+JOIN goal
+ON id = matchid
+WHERE player LIKE 'Mario%'
+
+SELECT player, teamid,coach, gtime
+  FROM goal
+JOIN eteam
+ON teamid = id
+ WHERE gtime<=10
+
+SELECT mdate, teamname FROM game
+JOIN eteam
+ON eteam.id = team1
+WHERE coach = 'Fernando Santos'
+
+SELECT player FROM game
+JOIN goal
+ON id = matchid
+WHERE stadium = 'National Stadium, Warsaw'
