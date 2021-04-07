@@ -4,13 +4,9 @@
 
 > We asked to do exercises on the SQL ZOO
 
-Additional description about the project and its features.
-
 ## Built With
 
 - SQL
-
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
