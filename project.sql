@@ -248,3 +248,19 @@ WHEN dept = 3 THEN 'Art'
 ELSE 'None'
 END
 FROM teacher
+
+--SELF JOIN
+SELECT COUNT(id) FROM stops
+
+SELECT id FROM stops
+WHERE name = 'Craiglockhart'
+
+SELECT id, name FROM stops
+JOIN route 
+ON stops.id = route.stop
+WHERE num = 4 AND company = 'LRT'
+
+SELECT company, num, COUNT(*)
+FROM route WHERE stop=149 OR stop=53
+GROUP BY company, num
+HAVING COUNT(*) > 1
